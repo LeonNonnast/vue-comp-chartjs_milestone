@@ -20,7 +20,6 @@ export default defineComponent({
   name: "App",
   setup: () => {
     const colors = useColorPalette(60, 60, 70);
-
     return {
       options: {
         scales: {
