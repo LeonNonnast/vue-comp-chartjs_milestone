@@ -53,20 +53,3 @@ setup: () => {
       colors
     };
 ```
-
-### inject filter function
-
-```
-  inject: ["useFilter],
-  setup: () => {
-    const useFilter = inject("useFilter");
-
-    const filteredData = computed(() => {
-      return state.value.data.filter((item: any) => {
-        return typeof useFilter === "function"
-          ? useFilter(item, state.value.selectedTags)
-          : "";
-      });
-    });
-  }
-```
