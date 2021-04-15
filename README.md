@@ -1,29 +1,72 @@
 # vue-comp-chartjs_milestone
 
-## Project setup
+## how to install
+
 ```
-npm install
+npm install vue-comp-chartjs_milestone
 ```
 
-### Compiles and hot-reloads for development
+### add global
+
 ```
-npm run serve
+import MilestoneChart from 'vue-comp-chartjs_milestone';
+
+createApp(App)
+  .use(MilestoneChart)
+  .mount("#app");
+
 ```
 
-### Compiles and minifies for production
+### add html
+
 ```
-npm run build
+const datasets = [];
+<v-chart-milestone :chartData="datasets" :chartOptions="options" :colors="colors" />
 ```
 
-### Run your unit tests
+### model - data
+
 ```
-npm run test:unit
+datasets: Dataset[] ,         // Array with Datasets
+labels: Date[],               // Dates
 ```
 
-### Lints and fixes files
+### model - datasets
+
 ```
-npm run lint
+label: string ,          // description of milestone
+fill: any,               // fill to bottom
+borderColor: string,     // color of line
+data?: Date[]            // data for each label.
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### implement code
+
+```
+setup: () => {
+    const colors = useColorPalette(60, 60, 70);
+
+
+    return {
+      data,
+      options,
+      colors
+    };
+```
+
+### inject filter function
+
+```
+  inject: ["useFilter],
+  setup: () => {
+    const useFilter = inject("useFilter");
+
+    const filteredData = computed(() => {
+      return state.value.data.filter((item: any) => {
+        return typeof useFilter === "function"
+          ? useFilter(item, state.value.selectedTags)
+          : "";
+      });
+    });
+  }
+```
