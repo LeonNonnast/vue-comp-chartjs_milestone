@@ -1,15 +1,29 @@
 {
   "name": "vue-comp-chartjs_milestone",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "private": false,
+  "main": "index.js",
+  "files": [
+    "dist/*",
+    "src/components",
+    "src/models",
+    "src/use"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-package": "vue-cli-service build --target lib --name vue-comp-chartjs_milestone ./index.js",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@types/chart.js": "^2.9.32",
+    "@types/chartjs": "^0.0.31",
+    "@types/next": "^7.0.5",
+    "chart.js": "^2.9.4",
+    "chartjs": "^0.3.24",
     "core-js": "^3.6.5",
+    "next": "^7.0.2",
     "register-service-worker": "^1.7.1",
     "vue": "^3.0.0"
   },

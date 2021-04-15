@@ -1,4 +1,4 @@
-import ChartMilestone from "./src/components/ListFilter.vue";
+import ChartMilestone from "./src/components/ChartMilestone.vue";
 
 function install(app) {
   if (install.installed) return;
